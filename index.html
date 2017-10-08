@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>intothewhile</title>
+  <script src="https://use.fontawesome.com/a09179dcaa.js"></script>
+  <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection">-->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  </head>
+
+  <body class="home" onload="document.body.classList.add('loaded');">
+    <!-- menu -->
+<div class="page-header">
+    <div class="header-bg-layer"></div>
+    <div class="header-container">
+        <div class="main-menu">
+            <ul id="menu-menu" class="menu">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/playground/">Playground</a></li>
+                <li><a href="/veille-technologique/">Liens</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="close-btn action-menu"> <span>Close</span></div>
+    <div class="menu-btn action-menu">
+        <div class="menu-icon-wrapper">
+            <div class="menu-icon"><span></span></div>
+            <div class="menu-icon hover-icon"><span></span></div>
+        </div>
+    </div>
+</div>
+<!-- menu -->
+<main>
+<div class="parallax">
+  <!-- background parallax layer -->
+  <div class="parallax__layer parallax__layer--bg">
+    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+  </div>
+  <!-- foreground parallax layer -->
+  <!--<div class="parallax__layer parallax__layer--fg">
+    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
+  </div>-->
+  <!-- carousel: midground parallax layer -->
+  <div class="carousel">
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+  </div>
+
+</div>
+<!--<div class="vz-wrapper">
+        <audio id="myAudio" src="test.mp3" data-author="Beethoven" data-title="Allegro"></audio>
+
+        <div class="vz-wrapper -canvas">
+            <canvas id="myCanvas" width="800" height="400"></canvas>
+        </div>
+    </div>-->
+
+
+      </main>
+      <!--<script src="assets/js/visualizer.js"></script>-->
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+    (function(document) {
+            var menuaction = document.querySelectorAll('.action-menu');
+            var pageheader = document.querySelector('.page-header');
+
+
+            [].slice.call(menuaction).forEach(function(el,i){
+            el.addEventListener('click', function(e) {
+              e.preventDefault();
+              pageheader.classList.toggle('menu-opened');
+              document.body.classList.toggle('overflowh');
+
+            });
+            });
+
+            //parallax
+            // external js: flickity.pkgd.js
+
+var flkty = new Flickity('.carousel');
+
+var cellRatio = 0.7;
+var bgRatio = 1;
+var fgRatio = 1;
+var count = flkty.slides.length - 1;
+
+var background = document.querySelector('.parallax__layer--bg');
+//var foreground = document.querySelector('.parallax__layer--fg');
+
+flkty.on( 'scroll', function( progress ) {
+  background.style.left = ( 0.5 - ( 0.5 + progress * count ) ) * 100 + '%';
+  //moveParallaxLayer( background, bgRatio, progress );
+//moveParallaxLayer( foreground, fgRatio, progress );
+});
+// trigger initial scroll
+flkty.reposition();
+
+function moveParallaxLayer( layer, layerRatio, progress ) {
+  layer.style.left = ( 0.5 - ( 0.5 + progress * count ) * 0.6 * layerRatio ) * 100 + '%';
+}
+
+          })(document);
+    </script>
+
+
+
+
+
+  </body>
+
+</html>
