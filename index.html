@@ -40,27 +40,27 @@
 <div class="parallax">
   <!-- background parallax layer -->
   <div class="parallax__layer parallax__layer--bg">
-    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--bg"><span></span></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--bg"></div>
   </div>
   <!-- foreground parallax layer -->
-  <!--<div class="parallax__layer parallax__layer--fg">
-    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
-    <div class="parallax__layer__cell parallax__layer__cell--fg"><span></span></div>
-  </div>-->
+  <div class="parallax__layer parallax__layer--fg">
+    <div class="parallax__layer__cell parallax__layer__cell--fg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"></div>
+    <div class="parallax__layer__cell parallax__layer__cell--fg"></div>
+  </div>
   <!-- carousel: midground parallax layer -->
   <div class="carousel">
-    <div class="carousel-cell"></div>
-    <div class="carousel-cell"></div>
-    <div class="carousel-cell"></div>
-    <div class="carousel-cell"></div>
-    <div class="carousel-cell"></div>
+    <div class="carousel-cell"><h1>Titre du content</h1></div>
+    <div class="carousel-cell"><h1>Titre du content</h1></div>
+    <div class="carousel-cell"><h1>Titre du content</h1></div>
+    <div class="carousel-cell"><h1>Titre du content</h1></div>
+    <div class="carousel-cell"><h1>Titre du content</h1></div>
   </div>
 
 </div>
@@ -98,16 +98,16 @@ var flkty = new Flickity('.carousel');
 
 var cellRatio = 0.7;
 var bgRatio = 1;
-var fgRatio = 1;
+var fgRatio = 1.25;
 var count = flkty.slides.length - 1;
 
 var background = document.querySelector('.parallax__layer--bg');
-//var foreground = document.querySelector('.parallax__layer--fg');
+var foreground = document.querySelector('.parallax__layer--fg');
 
 flkty.on( 'scroll', function( progress ) {
   background.style.left = ( 0.5 - ( 0.5 + progress * count ) ) * 100 + '%';
   //moveParallaxLayer( background, bgRatio, progress );
-//moveParallaxLayer( foreground, fgRatio, progress );
+moveParallaxLayer( foreground, fgRatio, progress );
 });
 // trigger initial scroll
 flkty.reposition();
